@@ -886,7 +886,11 @@ libwebrtc = { git = "https://github.com/zed-industries/livekit-rust-sdks", rev =
 webrtc-sys = { git = "https://github.com/zed-industries/livekit-rust-sdks", rev = "147fbca3d4b592d96d33f5e6a84b59fc0b5d9bf1" }
 
 [profile.dev]
-split-debuginfo = "unpacked"
+debug = 0  # No debug symbols (saves significant space)
+# Alternative options for debug symbols:
+# debug = 1         # Line tables only (minimal debug info, smaller size)
+# debug = 2         # Full debug info (default, largest size)
+# debug = "line-directives-only"  # Line directives only (very minimal)
 incremental = true
 codegen-units = 16
 
